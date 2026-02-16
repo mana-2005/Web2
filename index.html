@@ -1,109 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Registration</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            background-color: #f2f2f2;
-        }
-
-        form {
-            background-color: white;
-            width: 300px;
-            padding: 20px;
-            margin: 50px auto;
-            border-radius: 5px;
-            box-shadow: 0 0 10px gray;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 8px;
-            background-color: blue;
-            color: white;
-            border: none;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: darkblue;
-        }
-    </style>
+    <title>DOM Manipulation</title>
 </head>
-
 <body>
 
-<form onsubmit="return validateForm()">
-    <h2>Student Registration</h2>
+<h2 id="text">Hello Student</h2>
 
-    Name:
-    <input type="text" id="name">
-
-    Email:
-    <input type="text" id="email">
-
-    Password:
-    <input type="password" id="password">
-
-    Gender:<br>
-    <input type="radio" name="gender"> Male
-    <input type="radio" name="gender"> Female
-    <br><br>
-
-    <input type="submit" value="Register">
-</form>
+<button onclick="changeText()">Change Text</button>
+<button onclick="changeColor()">Change Color</button>
 
 <script>
-function validateForm() {
+function changeText() {
+    document.getElementById("text").innerHTML = "Text Changed Using DOM";
+}
 
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var gender = document.getElementsByName("gender");
+function changeColor() {
+    document.getElementById("text").style.color = "blue";
+}
+</script>
 
-    if (name == "") {
-        alert("Name cannot be empty");
-        return false;
-    }
-
-    if (!isNaN(name)) {
-        alert("Name must contain only letters");
-        return false;
-    }
-
-    if (email == "") {
-        alert("Email cannot be empty");
-        return false;
-    }
-
-    if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
-        alert("Enter valid email");
-        return false;
-    }
-
-    if (password == "") {
-        alert("Password cannot be empty");
-        return false;
-    }
-
-    if (password.length < 6) {
-        alert("Password must be at least 6 characters");
-        return false;
-    }
+</body>
+</html>
 
     if (!gender[0].checked && !gender[1].checked) {
         alert("Select gender");
