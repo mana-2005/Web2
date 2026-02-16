@@ -2,24 +2,66 @@
 <html>
 <head>
     <title>Student Registration</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            background-color: white;
+            width: 300px;
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            background-color: blue;
+            color: white;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkblue;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Student Registration Form</h2>
-
 <form onsubmit="return validateForm()">
+    <h2>Student Registration</h2>
+
     Name:
-    <input type="text" id="name"><br><br>
+    <input type="text" id="name">
 
     Email:
-    <input type="text" id="email"><br><br>
+    <input type="text" id="email">
 
     Password:
-    <input type="password" id="password"><br><br>
+    <input type="password" id="password">
 
-    Gender:
-    <input type="radio" name="gender" value="Male"> Male
-    <input type="radio" name="gender" value="Female"> Female
+    Gender:<br>
+    <input type="radio" name="gender"> Male
+    <input type="radio" name="gender"> Female
     <br><br>
 
     <input type="submit" value="Register">
@@ -37,6 +79,7 @@ function validateForm() {
         alert("Name cannot be empty");
         return false;
     }
+
     if (!isNaN(name)) {
         alert("Name must contain only letters");
         return false;
@@ -46,22 +89,24 @@ function validateForm() {
         alert("Email cannot be empty");
         return false;
     }
+
     if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
-        alert("Enter a valid email address");
+        alert("Enter valid email");
         return false;
     }
-  
+
     if (password == "") {
         alert("Password cannot be empty");
         return false;
     }
+
     if (password.length < 6) {
         alert("Password must be at least 6 characters");
         return false;
     }
-  
+
     if (!gender[0].checked && !gender[1].checked) {
-        alert("Please select gender");
+        alert("Select gender");
         return false;
     }
 
@@ -72,4 +117,3 @@ function validateForm() {
 
 </body>
 </html>
-
