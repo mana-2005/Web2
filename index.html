@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+    Name:
+    <input type="text" id="name"><br><br>
+
+    Email:
+    <input type="text" id="email"><br><br>
+
+    Password:
+    <input type="password" id="password"><br><br>
+
+    Gender:
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br><br>
+
+    <input type="submit" value="Register">
+</form>
+
+<script>
+function validateForm() {
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var gender = document.getElementsByName("gender");
+
+    if (name == "") {
+        alert("Name cannot be empty");
+        return false;
+    }
+    if (!isNaN(name)) {
+        alert("Name must contain only letters");
+        return false;
+    }
+
+    if (email == "") {
+        alert("Email cannot be empty");
+        return false;
+    }
+    if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+        alert("Enter a valid email address");
+        return false;
+    }
+  
+    if (password == "") {
+        alert("Password cannot be empty");
+        return false;
+    }
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return false;
+    }
+  
+    if (!gender[0].checked && !gender[1].checked) {
+        alert("Please select gender");
+        return false;
+    }
+
+    alert("Registration Successful");
+    return true;
+}
+</script>
+
+</body>
+</html>
+
