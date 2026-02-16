@@ -5,31 +5,14 @@
 </head>
 <body>
 
-<h2 id="text">Hello Student</h2>
+<h2 id="text">Original Text</h2>
 
 <button onclick="changeText()">Change Text</button>
-<button onclick="changeColor()">Change Color</button>
 
 <script>
 function changeText() {
     document.getElementById("text").innerHTML = "Text Changed Using DOM";
-}
-
-function changeColor() {
-    document.getElementById("text").style.color = "blue";
-}
-</script>
-
-</body>
-</html>
-
-    if (!gender[0].checked && !gender[1].checked) {
-        alert("Select gender");
-        return false;
-    }
-
-    alert("Registration Successful");
-    return true;
+    document.getElementById("text").style.color = "red";
 }
 </script>
 
